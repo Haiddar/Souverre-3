@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>soûverre</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f0ece4;
+      --rust: #8b3a1e;
+      --rust-muted: #a04a2a;
+      --brown-circle: #a0664a;
+      --text: #3a2a1e;
+      --text-light: #6b4e3a;
+      --mono: 'Optima', 'Segoe UI', Candara, Calibri, Arial, sans-serif;
+      --serif: 'EB Garamond', Georgia, serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--mono);
+      font-size: 13px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      padding: 3rem 3rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header-logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .header-nav {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .header-nav a {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      text-decoration: none;
+    }
+
+    .header-nav a:hover { color: var(--rust); }
+
+    /* ── HERO TEXT BLOCKS ── */
+    .hero-text {
+      padding: 2rem 3rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .hero-note-left {
+      font-family: var(--mono);
+      font-size: 12px;
+      line-height: 1.75;
+      color: var(--text-light);
+      max-width: 240px;
+    }
+
+    .hero-note-right {
+      font-family: var(--mono);
+      font-size: 12px;
+      line-height: 1.75;
+      color: var(--text-light);
+      max-width: 280px;
+      text-align: right;
+      padding-top: 3rem;
+    }
+
+    /* ── BIG TITLE ── */
+    .hero-title {
+      padding: 1rem 3rem 5rem;
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(2rem, 5.85vw, 999rem);
+      white-space: nowrap;
+      font-weight: 700;
+      color: var(--rust);
+      letter-spacing: -0.01em;
+      line-height: 1.0;
+      text-align: center;
+    }
+
+    /* ── CENTER IMAGE SECTION ── */
+    .center-section {
+      position: relative;
+      padding: 0 3rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .image-circle-wrap {
+      position: relative;
+      width: min(520px, 85vw);
+    }
+
+    .circle-decor {
+      position: absolute;
+      top: -3.5rem;
+      left: 75%;
+      transform: translateX(-50%);
+      width: clamp(68px, 10.5vw, 105px);
+      height: clamp(68px, 10.5vw, 105px);
+      border-radius: 50%;
+      background: var(--brown-circle);
+      opacity: 0.88;
+      z-index: 1;
+    }
+
+    .main-photo {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      background: transparent;
+      position: relative;
+      z-index: 0;
+    }
+
+    /* ── BRAND DESCRIPTION ── */
+    .brand-desc-section {
+      padding: 4rem 3rem 3rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .brand-desc-text {
+      font-family: var(--mono);
+      font-size: 13px;
+      line-height: 1.75;
+      color: var(--text-light);
+      max-width: 520px;
+      text-align: left;
+    }
+
+    /* ── EMAIL SIGNUP ── */
+    .signup-section {
+      position: relative;
+      padding: 6rem 3rem 5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .signup-inner {
+      text-align: center;
+      max-width: 360px;
+      width: 100%;
+    }
+
+    .signup-tagline {
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--text);
+      line-height: 1.6;
+      margin-bottom: 2.5rem;
+    }
+
+    .signup-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .signup-input {
+      width: 100%;
+      max-width: 280px;
+      padding: 0.6rem 0;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      color: var(--text);
+      background: transparent;
+      border: none;
+      border-bottom: 1.5px solid var(--rust-muted);
+      border-radius: 0;
+      outline: none;
+      letter-spacing: 0.04em;
+      text-align: center;
+    }
+
+    .signup-input::placeholder {
+      color: var(--text-light);
+      transition: opacity 0.2s;
+    }
+
+    .signup-input:focus::placeholder {
+      opacity: 0;
+    }
+
+    .signup-input:focus {
+      border-bottom-color: var(--rust);
+    }
+
+    .signup-btn {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--rust);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem 0;
+    }
+
+    .signup-btn:hover {
+      color: var(--text);
+    }
+
+    /* ── BG IMAGE SECTION ── */
+    .bg-image-section {
+      position: relative;
+      height: 45vh;
+      min-height: 280px;
+      background-image: url('Images/Image-BG.png');
+      background-size: cover;
+      background-position: center top;
+    }
+
+    .bg-image-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(240, 236, 228, 0.35);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 2rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-text {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      color: var(--text-light);
+    }
+
+    .footer-icons {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .footer-icons a {
+      color: var(--text-light);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .footer-icons a:hover {
+      color: var(--rust);
+    }
+
+    .footer-icons svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+
+      .header {
+        padding: 1.5rem 1.25rem 0;
+      }
+
+      .brand-logo {
+        height: 1.1rem;
+      }
+
+      .header-nav {
+        gap: 1.25rem;
+      }
+
+      .hero-text {
+        padding: 2rem 1.25rem 1rem;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .hero-note-left {
+        font-size: 11px;
+        max-width: 100%;
+      }
+
+      .hero-note-right {
+        font-size: 11px;
+        max-width: 100%;
+        text-align: right;
+        align-self: flex-end;
+      }
+
+      .hero-title {
+        padding: 0.5rem 1.25rem 1.5rem;
+        white-space: normal;
+        font-size: clamp(2rem, 10vw, 3.5rem);
+        text-align: left;
+      }
+
+      .center-section {
+        padding: 0 1.25rem 1.5rem;
+      }
+
+      .image-circle-wrap {
+        width: 100%;
+      }
+
+      .main-photo {
+        aspect-ratio: 4/3;
+      }
+
+      .circle-decor {
+        top: -2rem;
+        width: 18vw;
+        height: 18vw;
+      }
+
+      .brand-desc-section {
+        padding: 2.5rem 1.25rem 2rem;
+      }
+
+      .signup-section {
+        padding: 3rem 1.25rem 3rem;
+      }
+
+      .bg-image-section {
+        height: 35vh;
+        min-height: 220px;
+      }
+
+      footer {
+        padding: 1.5rem 1.25rem;
+      }
+
+      .footer-text {
+        font-size: 10px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .hero-title {
+        font-size: 8.5vw;
+      }
+    }
+
+    /* subtle fade-in on load */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    body > * {
+      animation: fadeUp 0.7s ease both;
+    }
+
+    body > *:nth-child(2) { animation-delay: 0.1s; }
+    body > *:nth-child(3) { animation-delay: 0.18s; }
+    body > *:nth-child(4) { animation-delay: 0.26s; }
+    body > *:nth-child(5) { animation-delay: 0.32s; }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-logo">
+      <img src="Images/Souverre Logo.png" alt="soûverre" class="brand-logo" />
+    </div>
+    <nav class="header-nav">
+      <a href="#">About</a>
+      <a href="#">Scent Trails</a>
+    </nav>
+  </header>
+
+  <!-- HERO TEXT -->
+  <section class="hero-text">
+    <div class="hero-note-left">
+      Sap, a thin line of smoke.<br />
+      Sun-warmed bark and softened<br />
+      leaves linger underneath.
+    </div>
+    <div class="hero-note-right">
+      Metallic air before winter decides.<br />
+      Resin rising through frost. A season shifts its weight.
+    </div>
+  </section>
+
+  <!-- BIG TITLE -->
+  <h1 class="hero-title">A Trace In The Northern Air</h1>
+
+  <!-- CENTER IMAGE + CIRCLE -->
+  <section class="center-section">
+    <div class="image-circle-wrap">
+      <div class="circle-decor"></div>
+      <img class="main-photo" src="Images/Image-1.jpg" alt="" />
+    </div>
+  </section>
+
+  <!-- BRAND DESCRIPTION -->
+  <section class="brand-desc-section">
+    <p class="brand-desc-text">Following the season's mood, the weight of light, and the quiet ways the world smells when no one is watching.</p>
+  </section>
+
+  <!-- EMAIL SIGNUP -->
+  <section class="signup-section">
+    <div class="signup-inner">
+      <p class="signup-tagline">Hear from us as the season turns</p>
+      <div class="signup-form">
+        <input type="email" class="signup-input" placeholder="Email address" />
+        <button class="signup-btn">Sign Up</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- BACKGROUND IMAGE -->
+  <div class="bg-image-section"></div>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-text">We document the scent of the wilderness</span>
+    <div class="footer-icons">
+      <a href="#" aria-label="Email">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="4" width="20" height="16" rx="2" />
+          <path d="M22 4L12 13L2 4" />
+        </svg>
+      </a>
+      <a href="#" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" />
+          <circle cx="12" cy="12" r="5" />
+          <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none" />
+        </svg>
+      </a>
+    </div>
+  </footer>
+
+</body>
+</html>
