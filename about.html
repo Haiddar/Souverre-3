@@ -6,7 +6,7 @@
   <title>soûverre — About</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -161,22 +161,19 @@
       display: block;
     }
 
-    /* ── HANDWRITING 2 ── */
+    /* ── STORY SECTION ── */
     .story-section {
       padding: 2rem 3rem 3rem;
       display: flex;
-      flex-direction: column;
-      align-items: flex-start;
       max-width: 520px;
       margin: 0 auto;
     }
 
-    .story-handwriting {
-      max-width: 120px;
-      width: 100%;
-      height: auto;
-      display: block;
-      margin-left: 1rem;
+    .story-text {
+      font-family: 'Caveat', cursive;
+      font-size: clamp(1.15rem, 2.5vw, 1.4rem);
+      line-height: 1.55;
+      color: var(--text-light);
     }
 
     /* ── BG IMAGE SECTION ── */
@@ -305,10 +302,6 @@
         padding: 2rem 1.25rem 2rem;
       }
 
-      .story-handwriting {
-        max-width: 90px;
-      }
-
       footer {
         padding: 1.5rem 1.25rem;
       }
@@ -368,7 +361,7 @@
 
   <!-- STORY -->
   <section class="story-section">
-    <img src="Images/about-image-6.png" alt="" class="story-handwriting" />
+    <p class="story-text">Soûverre began in nature, with 3 friends tracing the stillness of the Canadian wild. Along forest trails and open air, they followed scent, gathering fragments of the landscape and preserving them beyond the moment.</p>
   </section>
 
   <!-- BACKGROUND IMAGE -->
