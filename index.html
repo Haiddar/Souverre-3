@@ -238,11 +238,12 @@
     /* ── BG IMAGE SECTION ── */
     .bg-image-section {
       position: relative;
-      height: 45vh;
-      min-height: 280px;
-      background-image: url('Images/Image-BG.png');
-      background-size: cover;
-      background-position: center top;
+    }
+
+    .bg-image-section img {
+      display: block;
+      width: 100%;
+      height: auto;
     }
 
     .bg-image-section::before {
@@ -355,11 +356,6 @@
         padding: 3rem 1.25rem 3rem;
       }
 
-      .bg-image-section {
-        height: 35vh;
-        min-height: 220px;
-      }
-
       footer {
         padding: 1.5rem 1.25rem;
       }
@@ -445,7 +441,9 @@
   </section>
 
   <!-- BACKGROUND IMAGE -->
-  <div class="bg-image-section"></div>
+  <div class="bg-image-section">
+    <img src="Images/Image-BG.png" alt="" />
+  </div>
 
   <!-- FOOTER -->
   <footer>
