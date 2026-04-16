@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>soûverre — About</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f0ece4;
+      --rust: #8b3a1e;
+      --rust-muted: #a04a2a;
+      --brown-circle: #a0664a;
+      --text: #3a2a1e;
+      --text-light: #6b4e3a;
+      --mono: 'Optima', 'Segoe UI', Candara, Calibri, Arial, sans-serif;
+      --serif: 'EB Garamond', Georgia, serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--mono);
+      font-size: 13px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      padding: 3rem 3rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header-logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .brand-logo {
+      height: 1.6rem;
+      width: auto;
+    }
+
+    .header-nav {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .header-nav a {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .header-nav a:hover,
+    .header-nav a.active {
+      color: var(--rust);
+    }
+
+    /* ── INTRO HANDWRITING IMAGE ── */
+    .intro-section {
+      padding: 4rem 3rem 2rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .intro-handwriting {
+      max-width: 280px;
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* ── COLLAGE SECTION ── */
+    .collage-section {
+      position: relative;
+      padding: 2rem 3rem 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    .collage-wrap {
+      position: relative;
+      width: min(520px, 88vw);
+      aspect-ratio: 1 / 1.6;
+    }
+
+    /* Mountain polaroid */
+    .polaroid {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 48%;
+      z-index: 2;
+      transform: rotate(-2deg);
+    }
+
+    .polaroid img {
+      width: 100%;
+      display: block;
+    }
+
+    /* Stamp sheet area */
+    .stamp-area {
+      position: absolute;
+      top: 25%;
+      right: 0;
+      width: 35%;
+      z-index: 3;
+    }
+
+    .stamp-sheet {
+      transform: rotate(2deg);
+    }
+
+    .stamp-sheet img {
+      width: 100%;
+      display: block;
+    }
+
+    /* Chairs photo - bottom left */
+    .chairs-photo {
+      position: absolute;
+      bottom: 12%;
+      left: 0;
+      width: 48%;
+      z-index: 4;
+      transform: rotate(-4deg);
+    }
+
+    .chairs-photo img {
+      width: 100%;
+      display: block;
+    }
+
+    /* Jasper landscape - overlapping right */
+    .landscape-photo {
+      position: absolute;
+      bottom: 18%;
+      right: 0;
+      width: 50%;
+      z-index: 5;
+      transform: rotate(2deg);
+    }
+
+    .landscape-photo img {
+      width: 100%;
+      display: block;
+    }
+
+    /* ── HANDWRITING 2 ── */
+    .story-section {
+      padding: 2rem 3rem 3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    .story-handwriting {
+      max-width: 120px;
+      width: 100%;
+      height: auto;
+      display: block;
+      margin-left: 1rem;
+    }
+
+    /* ── BG IMAGE SECTION ── */
+    .bg-image-section {
+      position: relative;
+      height: 40vh;
+      min-height: 250px;
+      background-image: url('Images/Image-BG.png');
+      background-size: cover;
+      background-position: center top;
+      margin-top: 2rem;
+    }
+
+    .bg-image-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(240, 236, 228, 0.4);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 2rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-text {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      color: var(--text-light);
+    }
+
+    .footer-icons {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .footer-icons a {
+      color: var(--text-light);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .footer-icons a:hover {
+      color: var(--rust);
+    }
+
+    .footer-icons svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* ── FADE IN ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .header { animation: fadeUp 0.6s ease both; }
+    .intro-section { animation: fadeUp 0.6s ease 0.08s both; }
+    .collage-section { animation: fadeUp 0.7s ease 0.16s both; }
+    .story-section { animation: fadeUp 0.7s ease 0.24s both; }
+    .bg-image-section { animation: fadeUp 0.7s ease 0.3s both; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .header {
+        padding: 1.5rem 1.25rem 0;
+      }
+
+      .brand-logo {
+        height: 1.1rem;
+      }
+
+      .header-nav {
+        gap: 1.25rem;
+      }
+
+      .intro-section {
+        padding: 3rem 1.25rem 1.5rem;
+      }
+
+      .intro-handwriting {
+        max-width: 220px;
+      }
+
+      .collage-section {
+        padding: 1rem 1.25rem 0;
+      }
+
+      .collage-wrap {
+        width: 100%;
+        aspect-ratio: 1 / 1.65;
+      }
+
+      .polaroid {
+        left: -2%;
+        width: 50%;
+      }
+
+      .stamp-area {
+        top: 26%;
+        right: 0;
+        width: 38%;
+      }
+
+      .chairs-photo {
+        bottom: 10%;
+        left: 0;
+        width: 50%;
+      }
+
+      .landscape-photo {
+        bottom: 16%;
+        right: 0;
+        width: 52%;
+      }
+
+      .story-section {
+        padding: 2rem 1.25rem 2rem;
+      }
+
+      .story-handwriting {
+        max-width: 90px;
+      }
+
+      .bg-image-section {
+        height: 30vh;
+        min-height: 200px;
+      }
+
+      footer {
+        padding: 1.5rem 1.25rem;
+      }
+
+      .footer-text {
+        font-size: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-logo">
+      <a href="index.html"><img src="Images/Souverre Logo.png" alt="soûverre" class="brand-logo" /></a>
+    </div>
+    <nav class="header-nav">
+      <a href="about.html" class="active">About</a>
+      <a href="#">Scent Trails</a>
+    </nav>
+  </header>
+
+  <!-- INTRO HANDWRITING -->
+  <section class="intro-section">
+    <img src="Images/about-image-1.png" alt="Rooted in the landscape of the True North where weather moves slowly and seasons leave long traces, we observe the dryness of earth and the slow shift of light, preserving these moments before they pass." class="intro-handwriting" />
+  </section>
+
+  <!-- COLLAGE -->
+  <section class="collage-section">
+    <div class="collage-wrap">
+
+      <!-- Mountain polaroid -->
+      <div class="polaroid">
+        <img src="Images/about-image-2.png" alt="Mountain landscape" />
+      </div>
+
+      <!-- Stamp sheet -->
+      <div class="stamp-area">
+        <div class="stamp-sheet">
+          <img src="Images/about-image-3.png" alt="" />
+        </div>
+      </div>
+
+      <!-- Chairs photo -->
+      <div class="chairs-photo">
+        <img src="Images/about-image-4.png" alt="Three chairs" />
+      </div>
+
+      <!-- Jasper landscape -->
+      <div class="landscape-photo">
+        <img src="Images/about-image-5.png" alt="Jasper landscape" />
+      </div>
+
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section class="story-section">
+    <img src="Images/about-image-6.png" alt="" class="story-handwriting" />
+  </section>
+
+  <!-- BACKGROUND IMAGE -->
+  <div class="bg-image-section"></div>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-text">We document the scent of the wilderness</span>
+    <div class="footer-icons">
+      <a href="#" aria-label="Email">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="4" width="20" height="16" rx="2" />
+          <path d="M22 4L12 13L2 4" />
+        </svg>
+      </a>
+      <a href="#" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" />
+          <circle cx="12" cy="12" r="5" />
+          <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none" />
+        </svg>
+      </a>
+    </div>
+  </footer>
+
+</body>
+</html>
