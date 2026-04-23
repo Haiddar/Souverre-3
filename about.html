@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>soûverre</title>
+  <title>soûverre — About</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -45,202 +45,139 @@
       align-items: center;
     }
 
+    .brand-logo {
+      height: 1.6rem;
+      width: auto;
+    }
+
     .header-nav {
       display: flex;
       gap: 2rem;
     }
 
     .header-nav a {
+      font-family: var(--mono);
       font-size: 11px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--text);
       text-decoration: none;
+      transition: color 0.2s;
     }
 
     .header-nav a:hover { color: var(--rust); }
     .header-nav a.active { color: var(--rust); }
 
-    .brand-logo {
-      height: 1.6rem;
-      width: auto;
-    }
-
-    /* ── HERO TEXT BLOCKS ── */
-    .hero-text {
-      padding: 2rem 3rem 4rem;
+    /* ── INTRO HANDWRITING IMAGE ── */
+    .intro-section {
+      padding: 4rem 3rem 2rem;
       display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
+      justify-content: center;
     }
 
-    .hero-note-left {
-      font-family: var(--mono);
-      font-size: 15px;
-      line-height: 1.75;
-      color: var(--text-light);
-      max-width: 340px;
-    }
-
-    .hero-note-right {
-      font-family: var(--mono);
-      font-size: 15px;
-      line-height: 1.75;
-      color: var(--text-light);
+    .intro-handwriting {
       max-width: 280px;
-      text-align: right;
-      padding-top: 3rem;
-    }
-
-    /* ── BIG TITLE ── */
-    .hero-title {
-      padding: 1rem 0 5rem;
-      font-family: 'Inter', sans-serif;
-      font-size: clamp(2rem, 7.5vw, 999rem);
-      white-space: nowrap;
-      font-weight: 700;
-      color: var(--rust);
-      letter-spacing: -0.01em;
-      line-height: 1.0;
-      text-align: center;
-    }
-
-    /* ── CENTER IMAGE SECTION ── */
-    .center-section {
-      position: relative;
-      padding: 0 3rem 2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .image-circle-wrap {
-      position: relative;
-      width: min(720px, 85vw);
-    }
-
-    .circle-decor {
-      position: absolute;
-      top: -3.5rem;
-      left: 75%;
-      transform: translateX(-50%);
-      width: clamp(68px, 10.5vw, 105px);
-      height: clamp(68px, 10.5vw, 105px);
-      border-radius: 50%;
-      background: var(--brown-circle);
-      opacity: 0.92;
-      z-index: 1;
-    }
-
-    .main-photo {
-      display: block;
       width: 100%;
-      aspect-ratio: 16/9;
-      object-fit: cover;
-      background: transparent;
-      position: relative;
-      z-index: 0;
+      height: auto;
+      display: block;
     }
 
-    /* ── BRAND DESCRIPTION ── */
-    .brand-desc-section {
+    /* ── COLLAGE SECTION ── */
+    .collage-section {
+      position: relative;
+      padding: 2rem 3rem 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    .collage-wrap {
+      position: relative;
+      width: min(520px, 88vw);
+      aspect-ratio: 1 / 1.6;
+    }
+
+    /* Mountain polaroid */
+    .polaroid {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 48%;
+      z-index: 2;
+      transform: rotate(-2deg);
+    }
+
+    .polaroid img {
+      width: 100%;
+      display: block;
+    }
+
+    /* Stamp sheet area */
+    .stamp-area {
+      position: absolute;
+      top: 25%;
+      right: 0;
+      width: 35%;
+      z-index: 3;
+    }
+
+    .stamp-sheet {
+      transform: rotate(2deg);
+    }
+
+    .stamp-sheet img {
+      width: 100%;
+      display: block;
+    }
+
+    /* Chairs photo - bottom left */
+    .chairs-photo {
+      position: absolute;
+      bottom: 12%;
+      left: 0;
+      width: 48%;
+      z-index: 4;
+      transform: rotate(-4deg);
+    }
+
+    .chairs-photo img {
+      width: 100%;
+      display: block;
+    }
+
+    /* Jasper landscape - overlapping right */
+    .landscape-photo {
+      position: absolute;
+      bottom: 18%;
+      right: 0;
+      width: 50%;
+      z-index: 5;
+      transform: rotate(2deg);
+    }
+
+    .landscape-photo img {
+      width: 100%;
+      display: block;
+    }
+
+    /* ── STORY SECTION ── */
+    .story-section {
       padding: 2rem 3rem 3rem;
       display: flex;
-      justify-content: center;
-    }
-
-    .brand-desc-text {
-      font-family: var(--mono);
-      font-size: 15px;
-      line-height: 1.75;
-      color: var(--text-light);
       max-width: 520px;
-      text-align: left;
+      margin: 0 auto;
     }
 
-    /* ── EMAIL SIGNUP ── */
-    .signup-section {
-      position: relative;
-      padding: 6rem 3rem 5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .signup-inner {
-      text-align: center;
-      width: fit-content;
-    }
-
-    .signup-tagline {
-      font-family: var(--mono);
-      font-size: 13px;
-      font-weight: 400;
-      color: var(--text);
-      line-height: 1.6;
-      margin-bottom: 1.25rem;
-      white-space: nowrap;
-    }
-
-    .signup-form {
-      display: flex;
-      flex-direction: column;
-      align-items: stretch;
-      gap: 1.25rem;
-    }
-
-    .signup-input {
-      width: 100%;
-      padding: 0.6rem 0;
-      font-family: var(--mono);
-      font-size: 13px;
-      color: var(--text);
-      background: transparent;
-      border: none;
-      border-bottom: 1.5px solid #b0a898;
-      border-radius: 0;
-      outline: none;
-      letter-spacing: 0.04em;
-      text-align: left;
-    }
-
-    .signup-input::placeholder {
-      color: #a8a099;
-      transition: opacity 0.2s;
-    }
-
-    .signup-input:focus::placeholder {
-      opacity: 0;
-    }
-
-    .signup-input:focus {
-      border-bottom-color: var(--rust);
-    }
-
-    .signup-btn {
-      font-family: 'Inter', sans-serif;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--rust);
-      background: rgba(200, 190, 175, 0.3);
-      border: none;
-      cursor: pointer;
-      padding: 0.5rem 2rem;
-      border-radius: 999px;
-      align-self: center;
-      width: fit-content;
-    }
-
-    .signup-btn:hover {
-      color: var(--text);
-      background: rgba(200, 190, 175, 0.45);
+    .story-text {
+      font-family: 'Caveat', cursive;
+      font-size: clamp(1.15rem, 2.5vw, 1.4rem);
+      line-height: 1.55;
+      color: rgb(121, 66, 44);
     }
 
     /* ── BG IMAGE SECTION ── */
     .bg-image-section {
       position: relative;
+      margin-top: 2rem;
     }
 
     .bg-image-section img {
@@ -253,7 +190,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: rgba(240, 236, 228, 0.35);
+      background: rgba(240, 236, 228, 0.4);
     }
 
     /* ── FOOTER ── */
@@ -294,9 +231,20 @@
       height: 18px;
     }
 
+    /* ── FADE IN ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .header { animation: fadeUp 0.6s ease both; }
+    .intro-section { animation: fadeUp 0.6s ease 0.08s both; }
+    .collage-section { animation: fadeUp 0.7s ease 0.16s both; }
+    .story-section { animation: fadeUp 0.7s ease 0.24s both; }
+    .bg-image-section { animation: fadeUp 0.7s ease 0.3s both; }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
-
       .header {
         padding: 1.5rem 1.25rem 0;
       }
@@ -309,56 +257,48 @@
         gap: 1.25rem;
       }
 
-      .hero-text {
-        padding: 2rem 1.25rem 0.5rem;
-        flex-direction: column;
-        gap: 1.5rem;
+      .intro-section {
+        padding: 3rem 1.25rem 1.5rem;
       }
 
-      .hero-note-left {
-        font-size: 13px;
-        max-width: 100%;
+      .intro-handwriting {
+        max-width: 220px;
       }
 
-      .hero-note-right {
-        font-size: 13px;
-        max-width: 100%;
-        text-align: right;
-        align-self: flex-end;
-        padding-top: 0;
+      .collage-section {
+        padding: 1rem 1.25rem 0;
       }
 
-      .hero-title {
-        padding: 1.5rem 1.25rem 3rem;
-        white-space: normal;
-        font-size: clamp(2.5rem, 13vw, 4rem);
-        text-align: left;
-      }
-
-      .center-section {
-        padding: 0 1.25rem 1.5rem;
-      }
-
-      .image-circle-wrap {
+      .collage-wrap {
         width: 100%;
+        aspect-ratio: 1 / 1.65;
       }
 
-      .main-photo {
-        aspect-ratio: 4/3;
+      .polaroid {
+        left: -2%;
+        width: 50%;
       }
 
-      .circle-decor {
-        top: -2rem;
-        width: 18vw;
-        height: 18vw;
+      .stamp-area {
+        top: 26%;
+        right: 0;
+        width: 38%;
       }
 
-      .brand-desc-section {
-        padding: 2.5rem 1.25rem 2rem;
+      .chairs-photo {
+        bottom: 10%;
+        left: 0;
+        width: 50%;
       }
 
-      .signup-section {
-        padding: 3rem 1.25rem 3rem;
+      .landscape-photo {
+        bottom: 16%;
+        right: 0;
+        width: 52%;
+      }
+
+      .story-section {
+        padding: 2rem 1.25rem 2rem;
       }
 
       footer {
@@ -369,27 +309,6 @@
         font-size: 11px;
       }
     }
-
-    @media (max-width: 400px) {
-      .hero-title {
-        font-size: 8.5vw;
-      }
-    }
-
-    /* subtle fade-in on load */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(12px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    body > * {
-      animation: fadeUp 0.7s ease both;
-    }
-
-    body > *:nth-child(2) { animation-delay: 0.1s; }
-    body > *:nth-child(3) { animation-delay: 0.18s; }
-    body > *:nth-child(4) { animation-delay: 0.26s; }
-    body > *:nth-child(5) { animation-delay: 0.32s; }
   </style>
 </head>
 <body>
@@ -400,48 +319,48 @@
       <a href="index.html"><img src="Images/Souverre Logo.png" alt="soûverre" class="brand-logo" /></a>
     </div>
     <nav class="header-nav">
-      <a href="about.html">About</a>
+      <a href="about.html" class="active">About</a>
       <a href="#">Scent Trails</a>
     </nav>
   </header>
 
-  <!-- HERO TEXT -->
-  <section class="hero-text">
-    <div class="hero-note-left">
-      Sap, a thin line of smoke. Sun-warmed bark<br />
-      and softened leaves linger underneath.
-    </div>
-    <div class="hero-note-right">
-      Metallic air before winter decides.<br />
-      Resin rising through frost. A season shifts its weight.
-    </div>
+  <!-- INTRO HANDWRITING -->
+  <section class="intro-section">
+    <img src="Images/about-image-1.png" alt="Rooted in the landscape of the True North where weather moves slowly and seasons leave long traces, we observe the dryness of earth and the slow shift of light, preserving these moments before they pass." class="intro-handwriting" />
   </section>
 
-  <!-- BIG TITLE -->
-  <h1 class="hero-title">A Trace In The Northern Air</h1>
+  <!-- COLLAGE -->
+  <section class="collage-section">
+    <div class="collage-wrap">
 
-  <!-- CENTER IMAGE + CIRCLE -->
-  <section class="center-section">
-    <div class="image-circle-wrap">
-      <div class="circle-decor"></div>
-      <img class="main-photo" src="Images/Image-1.jpg" alt="" />
-    </div>
-  </section>
-
-  <!-- BRAND DESCRIPTION -->
-  <section class="brand-desc-section">
-    <p class="brand-desc-text">Following the season's mood, the weight of light, and the quiet ways the world smells when no one is watching.</p>
-  </section>
-
-  <!-- EMAIL SIGNUP -->
-  <section class="signup-section">
-    <div class="signup-inner">
-      <p class="signup-tagline">Hear from us as the season turns:</p>
-      <div class="signup-form">
-        <input type="email" class="signup-input" placeholder="Email address" />
-        <button class="signup-btn">Sign Up</button>
+      <!-- Mountain polaroid -->
+      <div class="polaroid">
+        <img src="Images/about-image-2.png" alt="Mountain landscape" />
       </div>
+
+      <!-- Stamp sheet -->
+      <div class="stamp-area">
+        <div class="stamp-sheet">
+          <img src="Images/about-image-3.png" alt="" />
+        </div>
+      </div>
+
+      <!-- Chairs photo -->
+      <div class="chairs-photo">
+        <img src="Images/about-image-4.png" alt="Three chairs" />
+      </div>
+
+      <!-- Jasper landscape -->
+      <div class="landscape-photo">
+        <img src="Images/about-image-5.png" alt="Jasper landscape" />
+      </div>
+
     </div>
+  </section>
+
+  <!-- STORY -->
+  <section class="story-section">
+    <p class="story-text">Soûverre began in nature, with 3 friends tracing the stillness of the Canadian wild. Along forest trails and open air, they followed scent, gathering fragments of the landscape and preserving them beyond the moment.</p>
   </section>
 
   <!-- BACKGROUND IMAGE -->
