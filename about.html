@@ -76,7 +76,7 @@
       position: relative;
       width: min(560px, 92vw);
       margin: 0 auto;
-      aspect-ratio: 1 / 1.55;
+      aspect-ratio: 1 / 1.8;
     }
 
     .scrap-img {
@@ -90,45 +90,45 @@
       display: block;
     }
 
-    /* Mountain polaroid — top left, slight tilt */
+    /* Mountain polaroid — top left */
     .scrap-mountain {
       top: 0;
-      left: 0;
-      width: 58%;
+      left: -2%;
+      width: 62%;
       transform: rotate(-1deg);
       z-index: 2;
     }
 
     /* Jasper annotated — overlapping mountain, center-right */
     .scrap-jasper {
-      top: 28%;
-      left: 35%;
-      width: 50%;
+      top: 32%;
+      left: 30%;
+      width: 48%;
       transform: rotate(3deg);
       z-index: 3;
     }
 
     /* Small rock — far right */
     .scrap-rock {
-      top: 24%;
-      right: 0;
-      width: 14%;
+      top: 27%;
+      right: -2%;
+      width: 12%;
       z-index: 4;
     }
 
-    /* Chairs with text + frame — center-right, lower */
+    /* Chairs with text + frame — bottom right */
     .scrap-chairs {
       bottom: 0;
-      right: 0;
-      width: 62%;
+      right: -4%;
+      width: 65%;
       transform: rotate(-1deg);
       z-index: 5;
     }
 
     /* Stamps — bottom left */
     .scrap-stamps {
-      bottom: 5%;
-      left: 0;
+      bottom: 2%;
+      left: -4%;
       width: 28%;
       z-index: 4;
     }
@@ -203,31 +203,34 @@
     @media (min-width: 769px) {
       .scrapbook {
         width: min(680px, 75vw);
-        aspect-ratio: 1 / 1.3;
+        aspect-ratio: 1 / 1.5;
       }
 
       .scrap-mountain {
-        width: 50%;
+        left: 0;
+        width: 52%;
       }
 
       .scrap-jasper {
-        top: 25%;
-        left: 38%;
+        top: 30%;
+        left: 32%;
         width: 42%;
       }
 
       .scrap-rock {
-        top: 20%;
+        top: 22%;
         right: 2%;
         width: 10%;
       }
 
       .scrap-chairs {
+        right: 0;
         width: 55%;
       }
 
       .scrap-stamps {
-        bottom: 8%;
+        bottom: 5%;
+        left: 0;
         width: 22%;
       }
 
@@ -259,8 +262,8 @@
       }
 
       .scrapbook {
-        width: 92vw;
-        aspect-ratio: 1 / 1.6;
+        width: 94vw;
+        aspect-ratio: 1 / 1.85;
       }
 
       .bg-image-section {
