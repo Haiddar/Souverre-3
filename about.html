@@ -76,7 +76,7 @@
       position: relative;
       width: min(560px, 92vw);
       margin: 0 auto;
-      aspect-ratio: 1 / 1.5;
+      aspect-ratio: 1 / 1.55;
     }
 
     .scrap-img {
@@ -90,47 +90,47 @@
       display: block;
     }
 
-    /* Mountain polaroid — top left */
+    /* Mountain polaroid — tall portrait, top left */
     .scrap-mountain {
       top: 0;
-      left: -2%;
-      width: 55%;
+      left: 0;
+      width: 50%;
       transform: rotate(-1deg);
       z-index: 2;
     }
 
-    /* Jasper annotated — overlapping mountain, center-right */
+    /* Jasper — nearly square, overlaps mountain bottom-right */
     .scrap-jasper {
-      top: 35%;
-      left: 30%;
-      width: 45%;
+      top: 34%;
+      left: 28%;
+      width: 36%;
       transform: rotate(3deg);
       z-index: 3;
     }
 
-    /* Small rock — far right */
+    /* Small rock — tiny, far right near jasper area */
     .scrap-rock {
       top: 28%;
-      right: 0;
-      width: 10%;
+      right: 4%;
+      width: 7%;
       z-index: 4;
     }
 
-    /* Chairs with text + frame — bottom right */
+    /* Stamps — small, bottom left */
+    .scrap-stamps {
+      bottom: 3%;
+      left: 0;
+      width: 22%;
+      z-index: 4;
+    }
+
+    /* Chairs — landscape, bottom right */
     .scrap-chairs {
       bottom: 0;
-      right: -2%;
-      width: 60%;
+      right: 0;
+      width: 55%;
       transform: rotate(-1deg);
       z-index: 5;
-    }
-
-    /* Stamps — bottom left */
-    .scrap-stamps {
-      bottom: 0;
-      left: -2%;
-      width: 25%;
-      z-index: 4;
     }
 
     /* ── BG IMAGE SECTION ── */
@@ -203,35 +203,32 @@
     @media (min-width: 769px) {
       .scrapbook {
         width: min(680px, 75vw);
-        aspect-ratio: 1 / 1.5;
+        aspect-ratio: 1 / 1.35;
       }
 
       .scrap-mountain {
-        left: 0;
-        width: 52%;
+        width: 45%;
       }
 
       .scrap-jasper {
-        top: 30%;
-        left: 32%;
-        width: 42%;
+        top: 32%;
+        left: 30%;
+        width: 34%;
       }
 
       .scrap-rock {
-        top: 22%;
-        right: 2%;
-        width: 10%;
+        top: 25%;
+        right: 5%;
+        width: 6%;
       }
 
       .scrap-chairs {
-        right: 0;
-        width: 55%;
+        width: 50%;
       }
 
       .scrap-stamps {
         bottom: 5%;
-        left: 0;
-        width: 22%;
+        width: 18%;
       }
 
       .intro-handwriting {
