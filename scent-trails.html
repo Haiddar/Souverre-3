@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>soûverre — Scent Trails</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f0ece4;
+      --rust: #8b3a1e;
+      --text: #3a2a1e;
+      --text-light: #6b4e3a;
+      --mono: 'Optima', 'Segoe UI', Candara, Calibri, Arial, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--mono);
+      font-size: 13px;
+      line-height: 1.6;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      padding: 3rem 3rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header-logo { display: flex; align-items: center; }
+    .brand-logo { height: 1.6rem; width: auto; }
+    .header-nav { display: flex; gap: 2rem; }
+
+    .header-nav a {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .header-nav a:hover { color: var(--rust); }
+    .header-nav a.active { color: var(--rust); }
+
+    /* ── MAIN CONTENT ── */
+    .trails-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 6rem 3rem 4rem;
+    }
+
+    .trails-message {
+      font-family: var(--mono);
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--text);
+      text-align: center;
+      max-width: 480px;
+      margin-bottom: 4rem;
+    }
+
+    .trails-image-wrap {
+      width: min(420px, 75vw);
+    }
+
+    .trails-image-wrap img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 1rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #545C47;
+      margin-top: auto;
+    }
+
+    .footer-text {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      color: #d9d3c7;
+    }
+
+    .footer-icons {
+      display: flex;
+      gap: 1.25rem;
+      align-items: center;
+    }
+
+    .footer-icons a {
+      color: #d9d3c7;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .footer-icons a:hover { color: #ffffff; }
+
+    .footer-icons svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* ── FADE IN ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .header { animation: fadeUp 0.6s ease both; }
+    .trails-content { animation: fadeUp 0.7s ease 0.1s both; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .header {
+        padding: 1.5rem 1.25rem 0;
+      }
+
+      .brand-logo { height: 1.1rem; }
+      .header-nav { gap: 1.25rem; }
+
+      .trails-content {
+        padding: 4rem 1.25rem 3rem;
+      }
+
+      .trails-message {
+        font-size: 14px;
+      }
+
+      .trails-image-wrap {
+        width: 85vw;
+      }
+
+      footer {
+        padding: 0.75rem 1.25rem;
+      }
+
+      .footer-text { font-size: 11px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-logo">
+      <a href="index.html"><img src="Images/Souverre Logo.png" alt="soûverre" class="brand-logo" /></a>
+    </div>
+    <nav class="header-nav">
+      <a href="about.html">About</a>
+      <a href="scent-trails.html" class="active">Scent Trails</a>
+    </nav>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="trails-content">
+    <p class="trails-message">
+      Coming soon: a living log of trails walked across Canada.<br />
+      The ground our scents grow from.
+    </p>
+    <div class="trails-image-wrap">
+      <img src="Images/scent-trails-1.png" alt="Trail map" />
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-text">We document the scent of the wilderness.</span>
+    <div class="footer-icons">
+      <a href="#" aria-label="Email">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="4" width="20" height="16" rx="2" />
+          <path d="M22 4L12 13L2 4" />
+        </svg>
+      </a>
+      <a href="#" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" />
+          <circle cx="12" cy="12" r="5" />
+          <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none" />
+        </svg>
+      </a>
+    </div>
+  </footer>
+
+</body>
+</html>
