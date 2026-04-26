@@ -76,7 +76,7 @@
       position: relative;
       width: min(560px, 92vw);
       margin: 0 auto;
-      aspect-ratio: 1 / 1.55;
+      aspect-ratio: 1 / 2.1;
     }
 
     .scrap-img {
@@ -94,41 +94,41 @@
     .scrap-mountain {
       top: 0;
       left: 0;
-      width: 50%;
+      width: 55%;
       transform: rotate(-1deg);
       z-index: 2;
     }
 
-    /* Jasper — nearly square, overlaps mountain bottom-right */
+    /* Jasper — overlaps mountain bottom, center */
     .scrap-jasper {
-      top: 34%;
-      left: 28%;
-      width: 36%;
+      top: 30%;
+      left: 25%;
+      width: 40%;
       transform: rotate(3deg);
       z-index: 3;
     }
 
-    /* Small rock — tiny, far right near jasper area */
+    /* Small rock — right side, aligned with mountain bottom area */
     .scrap-rock {
-      top: 28%;
-      right: 4%;
+      top: 25%;
+      right: 8%;
       width: 7%;
       z-index: 4;
     }
 
-    /* Stamps — small, bottom left */
+    /* Stamps — bottom left, below the gap */
     .scrap-stamps {
-      bottom: 3%;
+      bottom: 6%;
       left: 0;
-      width: 22%;
+      width: 24%;
       z-index: 4;
     }
 
-    /* Chairs — landscape, bottom right */
+    /* Chairs — bottom right, slightly above stamps */
     .scrap-chairs {
-      bottom: 0;
+      bottom: 4%;
       right: 0;
-      width: 55%;
+      width: 58%;
       transform: rotate(-1deg);
       z-index: 5;
     }
@@ -202,33 +202,33 @@
     /* ── DESKTOP ── */
     @media (min-width: 769px) {
       .scrapbook {
-        width: min(680px, 75vw);
-        aspect-ratio: 1 / 1.35;
+        width: min(620px, 70vw);
+        aspect-ratio: 1 / 1.8;
       }
 
       .scrap-mountain {
-        width: 45%;
+        width: 48%;
       }
 
       .scrap-jasper {
         top: 32%;
-        left: 30%;
-        width: 34%;
+        left: 28%;
+        width: 35%;
       }
 
       .scrap-rock {
-        top: 25%;
-        right: 5%;
-        width: 6%;
+        top: 26%;
+        right: 10%;
+        width: 5%;
       }
 
       .scrap-chairs {
-        width: 50%;
+        width: 52%;
       }
 
       .scrap-stamps {
-        bottom: 5%;
-        width: 18%;
+        bottom: 6%;
+        width: 20%;
       }
 
       .intro-handwriting {
@@ -260,7 +260,7 @@
 
       .scrapbook {
         width: 94vw;
-        aspect-ratio: 1 / 1.55;
+        aspect-ratio: 1 / 2.1;
       }
 
       .bg-image-section {
