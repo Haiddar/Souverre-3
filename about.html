@@ -14,11 +14,9 @@
       --bg: #f0ece4;
       --rust: #8b3a1e;
       --rust-muted: #a04a2a;
-      --brown-circle: #a0664a;
       --text: #3a2a1e;
       --text-light: #6b4e3a;
       --mono: 'Optima', 'Segoe UI', Candara, Calibri, Arial, sans-serif;
-      --serif: 'EB Garamond', Georgia, serif;
     }
 
     html { scroll-behavior: smooth; }
@@ -40,20 +38,11 @@
       align-items: center;
     }
 
-    .header-logo {
-      display: flex;
-      align-items: center;
-    }
+    .header-logo { display: flex; align-items: center; }
 
-    .brand-logo {
-      height: 1.6rem;
-      width: auto;
-    }
+    .brand-logo { height: 1.6rem; width: auto; }
 
-    .header-nav {
-      display: flex;
-      gap: 2rem;
-    }
+    .header-nav { display: flex; gap: 2rem; }
 
     .header-nav a {
       font-family: var(--mono);
@@ -68,9 +57,9 @@
     .header-nav a:hover { color: var(--rust); }
     .header-nav a.active { color: var(--rust); }
 
-    /* ── INTRO HANDWRITING IMAGE ── */
+    /* ── INTRO HANDWRITING ── */
     .intro-section {
-      padding: 4rem 3rem 2rem;
+      padding: 4rem 3rem 3rem;
       display: flex;
       justify-content: center;
     }
@@ -82,102 +71,72 @@
       display: block;
     }
 
-    /* ── COLLAGE SECTION ── */
-    .collage-section {
+    /* ── SCRAPBOOK COLLAGE ── */
+    .scrapbook {
       position: relative;
-      padding: 2rem 3rem 0;
-      display: flex;
-      justify-content: center;
+      width: min(560px, 92vw);
+      margin: 0 auto;
+      aspect-ratio: 1 / 1.55;
     }
 
-    .collage-wrap {
-      position: relative;
-      width: min(520px, 88vw);
-      aspect-ratio: 1 / 1.6;
-    }
-
-    /* Mountain polaroid */
-    .polaroid {
+    .scrap-img {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 48%;
-      z-index: 2;
-      transform: rotate(-2deg);
-    }
-
-    .polaroid img {
-      width: 100%;
       display: block;
     }
 
-    /* Stamp sheet area */
-    .stamp-area {
-      position: absolute;
-      top: 25%;
-      right: 0;
-      width: 35%;
+    .scrap-img img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Mountain polaroid — top left, slight tilt */
+    .scrap-mountain {
+      top: 0;
+      left: 0;
+      width: 58%;
+      transform: rotate(-1deg);
+      z-index: 2;
+    }
+
+    /* Jasper annotated — overlapping mountain, center-right */
+    .scrap-jasper {
+      top: 28%;
+      left: 35%;
+      width: 50%;
+      transform: rotate(3deg);
       z-index: 3;
     }
 
-    .stamp-sheet {
-      transform: rotate(2deg);
-    }
-
-    .stamp-sheet img {
-      width: 100%;
-      display: block;
-    }
-
-    /* Chairs photo - bottom left */
-    .chairs-photo {
-      position: absolute;
-      bottom: 12%;
-      left: 0;
-      width: 48%;
-      z-index: 4;
-      transform: rotate(-4deg);
-    }
-
-    .chairs-photo img {
-      width: 100%;
-      display: block;
-    }
-
-    /* Jasper landscape - overlapping right */
-    .landscape-photo {
-      position: absolute;
-      bottom: 18%;
+    /* Small rock — far right */
+    .scrap-rock {
+      top: 24%;
       right: 0;
-      width: 50%;
+      width: 14%;
+      z-index: 4;
+    }
+
+    /* Chairs with text + frame — center-right, lower */
+    .scrap-chairs {
+      bottom: 0;
+      right: 0;
+      width: 62%;
+      transform: rotate(-1deg);
       z-index: 5;
-      transform: rotate(2deg);
     }
 
-    .landscape-photo img {
-      width: 100%;
-      display: block;
-    }
-
-    /* ── STORY SECTION ── */
-    .story-section {
-      padding: 2rem 3rem 3rem;
-      display: flex;
-      max-width: 520px;
-      margin: 0 auto;
-    }
-
-    .story-text {
-      font-family: 'Caveat', cursive;
-      font-size: clamp(1.15rem, 2.5vw, 1.4rem);
-      line-height: 1.55;
-      color: rgb(121, 66, 44);
+    /* Stamps — bottom left */
+    .scrap-stamps {
+      bottom: 5%;
+      left: 0;
+      width: 28%;
+      z-index: 4;
     }
 
     /* ── BG IMAGE SECTION ── */
     .bg-image-section {
       position: relative;
-      margin-top: 2rem;
+      margin-top: 3rem;
     }
 
     .bg-image-section img {
@@ -222,9 +181,7 @@
       align-items: center;
     }
 
-    .footer-icons a:hover {
-      color: #ffffff;
-    }
+    .footer-icons a:hover { color: #ffffff; }
 
     .footer-icons svg {
       width: 18px;
@@ -239,11 +196,47 @@
 
     .header { animation: fadeUp 0.6s ease both; }
     .intro-section { animation: fadeUp 0.6s ease 0.08s both; }
-    .collage-section { animation: fadeUp 0.7s ease 0.16s both; }
-    .story-section { animation: fadeUp 0.7s ease 0.24s both; }
-    .bg-image-section { animation: fadeUp 0.7s ease 0.3s both; }
+    .scrapbook { animation: fadeUp 0.7s ease 0.16s both; }
+    .bg-image-section { animation: fadeUp 0.7s ease 0.24s both; }
 
-    /* ── RESPONSIVE ── */
+    /* ── DESKTOP ── */
+    @media (min-width: 769px) {
+      .scrapbook {
+        width: min(680px, 75vw);
+        aspect-ratio: 1 / 1.3;
+      }
+
+      .scrap-mountain {
+        width: 50%;
+      }
+
+      .scrap-jasper {
+        top: 25%;
+        left: 38%;
+        width: 42%;
+      }
+
+      .scrap-rock {
+        top: 20%;
+        right: 2%;
+        width: 10%;
+      }
+
+      .scrap-chairs {
+        width: 55%;
+      }
+
+      .scrap-stamps {
+        bottom: 8%;
+        width: 22%;
+      }
+
+      .intro-handwriting {
+        max-width: 320px;
+      }
+    }
+
+    /* ── MOBILE ── */
     @media (max-width: 768px) {
       .header {
         padding: 1.5rem 1.25rem 0;
@@ -258,47 +251,20 @@
       }
 
       .intro-section {
-        padding: 3rem 1.25rem 1.5rem;
+        padding: 3rem 1.25rem 2rem;
       }
 
       .intro-handwriting {
         max-width: 220px;
       }
 
-      .collage-section {
-        padding: 1rem 1.25rem 0;
+      .scrapbook {
+        width: 92vw;
+        aspect-ratio: 1 / 1.6;
       }
 
-      .collage-wrap {
-        width: 100%;
-        aspect-ratio: 1 / 1.65;
-      }
-
-      .polaroid {
-        left: -2%;
-        width: 50%;
-      }
-
-      .stamp-area {
-        top: 26%;
-        right: 0;
-        width: 38%;
-      }
-
-      .chairs-photo {
-        bottom: 10%;
-        left: 0;
-        width: 50%;
-      }
-
-      .landscape-photo {
-        bottom: 16%;
-        right: 0;
-        width: 52%;
-      }
-
-      .story-section {
-        padding: 2rem 1.25rem 2rem;
+      .bg-image-section {
+        margin-top: 2rem;
       }
 
       footer {
@@ -329,38 +295,23 @@
     <img src="Images/about-image-1.png" alt="Rooted in the landscape of the True North where weather moves slowly and seasons leave long traces, we observe the dryness of earth and the slow shift of light, preserving these moments before they pass." class="intro-handwriting" />
   </section>
 
-  <!-- COLLAGE -->
-  <section class="collage-section">
-    <div class="collage-wrap">
-
-      <!-- Mountain polaroid -->
-      <div class="polaroid">
-        <img src="Images/about-image-2.png" alt="Mountain landscape" />
-      </div>
-
-      <!-- Stamp sheet -->
-      <div class="stamp-area">
-        <div class="stamp-sheet">
-          <img src="Images/about-image-3.png" alt="" />
-        </div>
-      </div>
-
-      <!-- Chairs photo -->
-      <div class="chairs-photo">
-        <img src="Images/about-image-4.png" alt="Three chairs" />
-      </div>
-
-      <!-- Jasper landscape -->
-      <div class="landscape-photo">
-        <img src="Images/about-image-5.png" alt="Jasper landscape" />
-      </div>
-
+  <!-- SCRAPBOOK COLLAGE -->
+  <section class="scrapbook">
+    <div class="scrap-img scrap-mountain">
+      <img src="Images/about-image-2.png" alt="Mountain landscape — Banff" />
     </div>
-  </section>
-
-  <!-- STORY -->
-  <section class="story-section">
-    <p class="story-text">Soûverre began in nature, with 3 friends tracing the stillness of the Canadian wild. Along forest trails and open air, they followed scent, gathering fragments of the landscape and preserving them beyond the moment.</p>
+    <div class="scrap-img scrap-jasper">
+      <img src="Images/about-image-3.png" alt="Jasper landscape" />
+    </div>
+    <div class="scrap-img scrap-rock">
+      <img src="Images/about-image-4.png" alt="" />
+    </div>
+    <div class="scrap-img scrap-stamps">
+      <img src="Images/about-image-5.png" alt="" />
+    </div>
+    <div class="scrap-img scrap-chairs">
+      <img src="Images/about-image-6.png" alt="Chairs — Jasper" />
+    </div>
   </section>
 
   <!-- BACKGROUND IMAGE -->
