@@ -13,7 +13,6 @@
     :root {
       --bg: #f0ece4;
       --rust: #8b3a1e;
-      --rust-muted: #a04a2a;
       --text: #3a2a1e;
       --text-light: #6b4e3a;
       --mono: 'Optima', 'Segoe UI', Candara, Calibri, Arial, sans-serif;
@@ -39,9 +38,7 @@
     }
 
     .header-logo { display: flex; align-items: center; }
-
     .brand-logo { height: 1.6rem; width: auto; }
-
     .header-nav { display: flex; gap: 2rem; }
 
     .header-nav a {
@@ -71,66 +68,96 @@
       display: block;
     }
 
-    /* ── SCRAPBOOK COLLAGE ── */
-    .scrapbook {
-      position: relative;
-      width: min(560px, 92vw);
+    /* ── COLLAGE WRAPPER ── */
+    .collage {
+      width: min(520px, 90vw);
       margin: 0 auto;
-      aspect-ratio: 1 / 2.1;
+      padding: 0 0 2rem;
     }
 
-    .scrap-img {
-      position: absolute;
-      display: block;
-    }
-
-    .scrap-img img {
+    /* ── TOP GROUP: mountain + jasper + rock ── */
+    .collage-top {
+      position: relative;
       width: 100%;
-      height: auto;
-      display: block;
+      /* Height driven by the mountain image */
     }
 
-    /* Mountain polaroid — tall portrait, top left */
-    .scrap-mountain {
-      top: 0;
-      left: 0;
+    .collage-top .mountain {
+      position: relative;
       width: 55%;
       transform: rotate(-1deg);
       z-index: 2;
     }
 
-    /* Jasper — overlaps mountain bottom, center */
-    .scrap-jasper {
-      top: 30%;
-      left: 25%;
+    .collage-top .mountain img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .collage-top .jasper {
+      position: absolute;
+      bottom: -15%;
+      left: 30%;
       width: 40%;
       transform: rotate(3deg);
       z-index: 3;
     }
 
-    /* Small rock — right side, aligned with mountain bottom area */
-    .scrap-rock {
-      top: 25%;
-      right: 8%;
+    .collage-top .jasper img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .collage-top .rock {
+      position: absolute;
+      top: 45%;
+      right: 5%;
       width: 7%;
       z-index: 4;
     }
 
-    /* Stamps — bottom left, below the gap */
-    .scrap-stamps {
-      bottom: 6%;
+    .collage-top .rock img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* ── BOTTOM GROUP: stamps + chairs ── */
+    .collage-bottom {
+      position: relative;
+      width: 100%;
+      margin-top: 4rem;
+      min-height: 200px;
+    }
+
+    .collage-bottom .stamps {
+      position: absolute;
+      bottom: 0;
       left: 0;
       width: 24%;
       z-index: 4;
     }
 
-    /* Chairs — bottom right, slightly above stamps */
-    .scrap-chairs {
-      bottom: 4%;
-      right: 0;
-      width: 58%;
+    .collage-bottom .stamps img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .collage-bottom .chairs {
+      position: relative;
+      width: 60%;
+      margin-left: auto;
       transform: rotate(-1deg);
       z-index: 5;
+    }
+
+    .collage-bottom .chairs img {
+      width: 100%;
+      height: auto;
+      display: block;
     }
 
     /* ── BG IMAGE SECTION ── */
@@ -196,39 +223,35 @@
 
     .header { animation: fadeUp 0.6s ease both; }
     .intro-section { animation: fadeUp 0.6s ease 0.08s both; }
-    .scrapbook { animation: fadeUp 0.7s ease 0.16s both; }
+    .collage { animation: fadeUp 0.7s ease 0.16s both; }
     .bg-image-section { animation: fadeUp 0.7s ease 0.24s both; }
 
     /* ── DESKTOP ── */
     @media (min-width: 769px) {
-      .scrapbook {
-        width: min(620px, 70vw);
-        aspect-ratio: 1 / 1.8;
+      .collage {
+        width: min(580px, 65vw);
       }
 
-      .scrap-mountain {
-        width: 48%;
+      .collage-top .mountain {
+        width: 50%;
       }
 
-      .scrap-jasper {
-        top: 32%;
-        left: 28%;
-        width: 35%;
+      .collage-top .jasper {
+        width: 38%;
+        left: 32%;
       }
 
-      .scrap-rock {
-        top: 26%;
-        right: 10%;
+      .collage-top .rock {
+        right: 8%;
         width: 5%;
       }
 
-      .scrap-chairs {
-        width: 52%;
+      .collage-bottom .stamps {
+        width: 20%;
       }
 
-      .scrap-stamps {
-        bottom: 6%;
-        width: 20%;
+      .collage-bottom .chairs {
+        width: 55%;
       }
 
       .intro-handwriting {
@@ -242,13 +265,9 @@
         padding: 1.5rem 1.25rem 0;
       }
 
-      .brand-logo {
-        height: 1.1rem;
-      }
+      .brand-logo { height: 1.1rem; }
 
-      .header-nav {
-        gap: 1.25rem;
-      }
+      .header-nav { gap: 1.25rem; }
 
       .intro-section {
         padding: 3rem 1.25rem 2rem;
@@ -258,9 +277,12 @@
         max-width: 220px;
       }
 
-      .scrapbook {
-        width: 94vw;
-        aspect-ratio: 1 / 2.1;
+      .collage {
+        width: 92vw;
+      }
+
+      .collage-bottom {
+        margin-top: 3rem;
       }
 
       .bg-image-section {
@@ -271,9 +293,7 @@
         padding: 0.75rem 1.25rem;
       }
 
-      .footer-text {
-        font-size: 11px;
-      }
+      .footer-text { font-size: 11px; }
     }
   </style>
 </head>
@@ -295,24 +315,33 @@
     <img src="Images/about-image-1.png" alt="Rooted in the landscape of the True North where weather moves slowly and seasons leave long traces, we observe the dryness of earth and the slow shift of light, preserving these moments before they pass." class="intro-handwriting" />
   </section>
 
-  <!-- SCRAPBOOK COLLAGE -->
-  <section class="scrapbook">
-    <div class="scrap-img scrap-mountain">
-      <img src="Images/about-image-2.png" alt="Mountain landscape — Banff" />
+  <!-- COLLAGE -->
+  <div class="collage">
+
+    <!-- Top group: mountain + jasper + rock -->
+    <div class="collage-top">
+      <div class="mountain">
+        <img src="Images/about-image-2.png" alt="Mountain landscape — Banff" />
+      </div>
+      <div class="jasper">
+        <img src="Images/about-image-3.png" alt="Jasper landscape" />
+      </div>
+      <div class="rock">
+        <img src="Images/about-image-4.png" alt="" />
+      </div>
     </div>
-    <div class="scrap-img scrap-jasper">
-      <img src="Images/about-image-3.png" alt="Jasper landscape" />
+
+    <!-- Bottom group: stamps + chairs -->
+    <div class="collage-bottom">
+      <div class="stamps">
+        <img src="Images/about-image-5.png" alt="" />
+      </div>
+      <div class="chairs">
+        <img src="Images/about-image-6.png" alt="Chairs — Jasper" />
+      </div>
     </div>
-    <div class="scrap-img scrap-rock">
-      <img src="Images/about-image-4.png" alt="" />
-    </div>
-    <div class="scrap-img scrap-stamps">
-      <img src="Images/about-image-5.png" alt="" />
-    </div>
-    <div class="scrap-img scrap-chairs">
-      <img src="Images/about-image-6.png" alt="Chairs — Jasper" />
-    </div>
-  </section>
+
+  </div>
 
   <!-- BACKGROUND IMAGE -->
   <div class="bg-image-section">
